@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{margin:0; padding:0;}
+	@keyframes test{
+		from{background-position:0px 0px;}
+		to{background-position:400px 0px;}
+	}
+	body{background:#ccc;}
+	div{width:300px; height:400px; margin:100px auto; border:1px solid #000; position:relative; border-radius:20px;}
+	div span{position:absolute; top:70%; left:0; width:100%; height:50px; text-align:center; line-height:50px; font-size:40px; font-weight:bold; font-family:微软雅黑;}
+	.s2{ background:-webkit-linear-gradient(45deg, rgba(0,0,0,0) 30px,blue 40px,rgba(0,0,0,0) 60px); -webkit-background-clip:text; color:rgba(0,0,0,0);
+	-webkit-animation:test 2s linear infinite;
+	}
+</style>
+</head>
+
+<body>
+	<div>
+		<span>请滑动屏幕解锁</span>
+		<span class="s2"><a>jweo</a>请滑动屏幕解锁</span>
+	</div>
+</body>
+</html>

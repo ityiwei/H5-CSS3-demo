@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{margin:0; padding:0}
+	div{width:150px; height:150px; background:#ccc; position:absolute; top:0; left:0;}
+</style>
+<script>
+	window.onload = function(){
+		var oDiv = document.querySelector('div');
+		oDiv.onclick = function(){
+			oDiv.style.WebkitTransition = '1s all ease';
+			oDiv.style.left = '500px';
+			function tranEnd(){
+				oDiv.removeEventListener('transitionend',tranEnd,false);
+				oDiv.style.top = '300px';
+				alert('向下');
+				function tranEnd2(){
+					oDiv.removeEventListener('transitionend',tranEnd2,false);
+					alert('结束');
+				}
+				oDiv.addEventListener('transitionend',tranEnd2,false);
+			}
+			oDiv.addEventListener('transitionend',tranEnd,false);
+		};
+	};
+</script>
+</head>
+
+<body>
+	<div></div>
+</body>
+</html>

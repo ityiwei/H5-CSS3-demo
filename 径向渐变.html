@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	div{width:200px; height:200px; border-radius:50%; background:-webkit-radial-gradient(50px 50px,#ccc,#06C,#fff,#666); margin:100px auto;}
+</style>
+<script>
+	function d2a(d){
+		return d*Math.PI/180;
+	}
+	window.onload = function(){
+		var oDiv = document.querySelector('div');
+		var d = 0;
+		var R = oDiv.offsetWidth/2;
+		setInterval(function(){
+			d++;
+			var x = R+Math.sin(d2a(d))*R;
+			var y = R-Math.cos(d2a(d))*R;
+			oDiv.style.background = '-webkit-radial-gradient('+x+'px '+y+'px,#ccc,#06C,#fff,#145)';
+		},3);
+	};
+</script>
+</head>
+
+<body>
+	<div></div>
+</body>
+</html>

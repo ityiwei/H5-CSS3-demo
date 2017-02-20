@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	.box{width:452px; height:60px; margin:100px auto; overflow:hidden; border:1px solid #ccc; position:relative; border-radius:10px;}
+	.box div{width:1000px; height:60px; position:absolute; top:0; left:0;
+	 background:-webkit-repeating-linear-gradient(45deg,red 0,red 10px,#fff 10px,#fff 20px,blue 20px,blue 30px,#fff 30px,#fff 40px)}
+	span:nth-child(1){color:red;}
+	span:nth-child(3){color:blue;}
+</style>
+<script>
+	window.onload = function(){
+		var oS1 = document.querySelectorAll('span')[0];
+		var oS2 = document.querySelectorAll('span')[1];
+		var oInp1 = document.querySelectorAll('input')[0];
+		var oInp2 = document.querySelectorAll('input')[1];
+		var oBox = document.querySelector('.box');
+		var oDiv = document.querySelector('.box div');
+		var l = 0;
+		setInterval(function(){
+			l-=2;
+			oDiv.style.left = l%452+'px';
+		},30);
+		oInp1.onchange = oInp2.onchange = function(){
+			oS1.style.color = oInp1.value;
+			oS1.innerHTML = oInp1.value;
+			oS2.style.color = oInp2.value;
+			oS2.innerHTML = oInp2.value;
+			oDiv.style.background = '-webkit-repeating-linear-gradient(45deg,'+oInp1.value+' 0,'+oInp1.value+' 10px,#fff 10px,#fff 20px,'+oInp2.value+' 20px,'+oInp2.value+' 30px,#fff 30px,#fff 40px)';
+		};
+	};
+</script>
+</head>
+
+<body>
+	<span>#ff0000</span><input type="color" value="#ff0000">
+	<span>#0000ff</span><input type="color" value="#0000ff">
+	<div class="box">
+		<div></div>
+	</div>
+</body>
+</html>
